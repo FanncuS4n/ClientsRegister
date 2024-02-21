@@ -35,13 +35,13 @@ namespace ClientsAPI.Repository
             }
         }
 
-        public async Task<int> Register(User user, string password)
+        public async Task<string> Register(User user, string password)
         {
             try
             {
                 if(await UserExists(user.UserName))
                 {
-                    return -1;
+                    return "exists";
                 }
                 CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
                 user.PasswordHash = passwordHash;
@@ -49,11 +49,11 @@ namespace ClientsAPI.Repository
 
                 await _db.Users.AddAsync(user);
                 await _db.SaveChangesAsync();
-                return user.Id;
+                return CreateToken(user);
             }
             catch (Exception)
             {
-                return -100;
+                return "error";
             }
         }
 
