@@ -8,7 +8,8 @@ namespace ClientsAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+
+    //[Authorize]
     public class ClientsController : ControllerBase
     {
         private readonly IClientRepository _clientRepository;

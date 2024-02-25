@@ -8,6 +8,12 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 
 import { ClientService } from './client.service';
+import { AppRouterModule } from './app.router.module';
+import { HttpClientModule } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +24,16 @@ import { ClientService } from './client.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AppRouterModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [
     provideClientHydration(),
-    ClientService
+    ClientService,
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
