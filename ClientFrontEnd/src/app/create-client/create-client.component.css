@@ -1,0 +1,11 @@
+.create-client-form{
+    margin: 5% 20% 5% 20%;
+}
+.create-client-field{
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.create-form-btn{
+    position: relative;
+}

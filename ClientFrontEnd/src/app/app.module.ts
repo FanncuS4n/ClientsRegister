@@ -12,15 +12,19 @@ import { AppRouterModule } from './app.router.module';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatTableModule} from '@angular/material/table';
-
+import { MatTableModule } from '@angular/material/table';
+import { CreateClientComponent } from './create-client/create-client.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card'
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    CreateClientComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,10 @@ import {MatTableModule} from '@angular/material/table';
     AppRouterModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatCardModule
   ],
   providers: [
     provideClientHydration(),
