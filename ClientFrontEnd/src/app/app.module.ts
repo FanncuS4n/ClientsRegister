@@ -17,6 +17,10 @@ import { CreateClientComponent } from './create-client/create-client.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatDialogModule } from '@angular/material/dialog';
+import { UpdateClientComponent } from './update-client/update-client.component'
+
 
 @NgModule({
   declarations: [
@@ -24,7 +28,8 @@ import { MatCardModule } from '@angular/material/card'
     ClientComponent,
     FooterComponent,
     HeaderComponent,
-    CreateClientComponent
+    CreateClientComponent,
+    UpdateClientComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,9 @@ import { MatCardModule } from '@angular/material/card'
     MatTableModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule,
+    MatDialogModule
   ],
   providers: [
     provideClientHydration(),

@@ -21,6 +21,15 @@
         <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element"> 
+            <button (click)="updateClient(element)" mat-raised-button color="primary">
+                <b>Edit</b>
+            </button>    
+        </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 

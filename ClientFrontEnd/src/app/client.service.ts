@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ClientInterface } from './Interfaces/ClientInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,12 @@ export class ClientService {
 
   constructor(private http: HttpClient) { }
 
-getClientes(){
-  return this.http.get(this.baseUrl)
-}
+  getClientes(){
+    return this.http.get(this.baseUrl)
+  }
+
+  createClient(client: ClientInterface){
+    return this.http.post(this.baseUrl, client);
+  }
 
 }

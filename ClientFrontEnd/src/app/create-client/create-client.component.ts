@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ClientService } from '../client.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-client',
@@ -7,6 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrl: './create-client.component.css'
 })
 export class CreateClientComponent {
+
+  constructor(private service: ClientService, private router: Router){}
 
   clientForm = new FormGroup({
     client_Name: new FormControl('', Validators.required),
@@ -17,5 +21,9 @@ export class CreateClientComponent {
 
   onSubmit() {
     console.log(this.clientForm.value);
+    // this.service.createClient(this.clientForm.value).subscribe((data:any) =>{
+    //   alert("Created CLIENT");
+    //   this.router.navigate(['/clients']);
+    // })
   }
 }
