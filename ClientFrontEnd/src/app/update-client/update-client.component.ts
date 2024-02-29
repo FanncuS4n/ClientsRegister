@@ -18,7 +18,7 @@ export class UpdateClientComponent {
 
   constructor(private fb: FormBuilder, 
     private dialogref: MatDialogRef<UpdateClientComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: {client_Name: string, surname: string, address: string, phone: string, id: number}
+    @Inject(MAT_DIALOG_DATA) private data: {client_Name: string, surname: string, adress: string, phone: string, id: number}
     , private service: ClientService
     , private router: Router){
 
@@ -26,9 +26,12 @@ export class UpdateClientComponent {
       this.form = fb.group({
         client_Name: [data.client_Name, Validators.required],
         surname: [data.surname, Validators.required],
-        address: [data.address, Validators.required],
+        adress: [data.adress, Validators.required],
         phone: [data.phone, Validators.required]
       })
+
+      console.log(this.id);
+      console.log(this.form.value);
     }
 
     close(){

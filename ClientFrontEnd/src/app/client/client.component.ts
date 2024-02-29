@@ -21,17 +21,15 @@ export class ClientComponent {
   ngOnInit(): void {
     this.service.getClientes().subscribe((data:any) => {
       this.dataSource = new MatTableDataSource<ClientInterface>(data.result as ClientInterface[]);
-      console.log(data);
     });
   }
 
   updateClient(client: ClientInterface){
-    console.log(client);
     this.dialog.open(UpdateClientComponent, {
       data: {
         client_Name: client.client_Name,
         surname: client.surname,
-        address: client.adress,
+        adress: client.adress,
         phone: client.phone,
         id: client.id
       }
