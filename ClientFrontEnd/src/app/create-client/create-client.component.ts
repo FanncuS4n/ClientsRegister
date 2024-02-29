@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ClientService } from '../client.service';
 import { Router } from '@angular/router';
+import { ClientService } from '../client.service';
+
 
 @Component({
   selector: 'app-create-client',
   templateUrl: './create-client.component.html',
-  styleUrl: './create-client.component.css'
+  styleUrls: ['./create-client.component.css']
 })
 export class CreateClientComponent {
 
@@ -17,13 +18,21 @@ export class CreateClientComponent {
     surname: new FormControl('', Validators.required),
     adress: new FormControl('', Validators.required),
     phone: new FormControl('', Validators.required)
-  });
+  })
 
   onSubmit() {
     console.log(this.clientForm.value);
-    // this.service.createClient(this.clientForm.value).subscribe((data:any) =>{
-    //   alert("Created CLIENT");
-    //   this.router.navigate(['/clients']);
-    // })
+
+    
+
+    this.service.createClient({
+      client_Name: this.clientForm.value.client_Name ?? '',
+      surname: this.clientForm.value.surname ?? '',
+      adress: this.clientForm.value.adress ?? '',
+      phone: this.clientForm.value.phone ?? ''
+    }).subscribe((data:any) =>{
+      alert("Created CLIENT");
+      this.router.navigate(['/']);
+    })
   }
 }

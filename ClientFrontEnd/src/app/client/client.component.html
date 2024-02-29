@@ -26,7 +26,10 @@
         <td mat-cell *matCellDef="let element"> 
             <button (click)="updateClient(element)" mat-raised-button color="primary">
                 <b>Edit</b>
-            </button>    
+            </button>
+            <button [routerLink]="['delete-client', element.id]" mat-raised-button color="warn">
+                <b>Delete</b>
+            </button>
         </td>
     </ng-container>
 

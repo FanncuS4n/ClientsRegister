@@ -1,0 +1,31 @@
+
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title> Are you sure you want to DELETE this Client? </mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item>
+                <b>Names: {{client.client_Names}}</b>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <b>Surnames: {{client.Surnames}}</b>
+            </mat-list-item>
+            <mat-list-item>
+                <b>Address: {{client.Address}}</b>
+            </mat-list-item>
+            <mat-list-item>
+                <b>Phone: {{client.Phone}}</b>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+    
+    <mat-card-actions>
+        <button mat-flat-button (click)="cancel()"> Cancel </button>
+        <button mat-raised-button color="warn" (click)="confirm()"> Confirm </button>
+    </mat-card-actions>
+
+</mat-card>

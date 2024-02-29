@@ -1,1 +1,28 @@
-<p>update-client works!</p>
+<h2 mat-dialog-title>Update client</h2>
+
+<mat-dialog-content [formGroup]="form">
+    <mat-form-field class="create_client_field">
+        <input matInput placeholder="Client names" formControlName="client_Name">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="create_client_field">
+        <input matInput placeholder="Client surname" formControlName="surname">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="create_client_field">
+        <input matInput placeholder="Client address" formControlName="address">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="create_client_field">
+        <input matInput placeholder="Client phone number" formControlName="phone">
+    </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+
+
+</mat-dialog-actions>

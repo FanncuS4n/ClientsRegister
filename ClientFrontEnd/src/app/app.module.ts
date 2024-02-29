@@ -1,25 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRouterModule } from './app.router.module';
 import { ClientComponent } from './client/client.component';
+import { ClientService } from './client.service';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { CreateClientComponent } from './create-client/create-client.component';
+import { UpdateClientComponent } from './update-client/update-client.component';
+import { DeleteClientComponent } from './delete-client/delete-client.component';
 
-import { ClientService } from './client.service';
-import { AppRouterModule } from './app.router.module';
-import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
-import { CreateClientComponent } from './create-client/create-client.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatDialogModule } from '@angular/material/dialog';
-import { UpdateClientComponent } from './update-client/update-client.component'
+import { MatListModule } from '@angular/material/list'
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -29,22 +31,25 @@ import { UpdateClientComponent } from './update-client/update-client.component'
     FooterComponent,
     HeaderComponent,
     CreateClientComponent,
-    UpdateClientComponent
+    UpdateClientComponent,
+    DeleteClientComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     AppRouterModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatButtonModule,
     MatTableModule,
     ReactiveFormsModule,
     MatInputModule,
     MatCardModule,
     MatToolbarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatListModule,
   ],
   providers: [
+    provideHttpClient(withFetch()),
     provideClientHydration(),
     ClientService,
     provideAnimationsAsync()
