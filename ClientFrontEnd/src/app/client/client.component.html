@@ -1,3 +1,8 @@
+
+<mat-form-field [hidden]="!dataSource" style="padding-top: 10px;">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filter" autocomplete="off">
+</mat-form-field>
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="client_Name">
@@ -25,10 +30,10 @@
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element"> 
             <button (click)="updateClient(element)" mat-raised-button color="primary">
-                <b>Edit</b>
+                <mat-icon color="white">edit</mat-icon><b>Edit</b>
             </button>
             <button [routerLink]="['delete-client', element.id]" mat-raised-button color="warn">
-                <b>Delete</b>
+                <mat-icon color="white">delete</mat-icon><b>Delete</b>
             </button>
         </td>
     </ng-container>
@@ -37,3 +42,6 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
+
+<mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+

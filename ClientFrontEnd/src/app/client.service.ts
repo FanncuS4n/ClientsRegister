@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ClientInterface } from './Interfaces/ClientInterface';
 
@@ -12,22 +12,52 @@ export class ClientService {
   constructor(private http: HttpClient) { }
 
   getClientes(){
-    return this.http.get(this.baseUrl)
+    let auth_token = localStorage.getItem('token_value');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    })
+
+    return this.http.get(this.baseUrl, {headers: headers})
   }
 
   getClient(id: number){
-    return this.http.get(this.baseUrl + id)
+    let auth_token = localStorage.getItem('token_value');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    })
+
+    return this.http.get(this.baseUrl + id, {headers: headers})
   }
 
   createClient(client: ClientInterface){
-    return this.http.post(this.baseUrl, client);
+    let auth_token = localStorage.getItem('token_value');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    })
+
+    return this.http.post(this.baseUrl, client, {headers: headers});
   }
 
   updateClient(id: number, client: ClientInterface){
-    return this.http.put(this.baseUrl + id, client);
+    let auth_token = localStorage.getItem('token_value');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    })
+
+    return this.http.put(this.baseUrl + id, client, {headers: headers});
   }
 
   deleteClient(id: number){
-    return this.http.delete(this.baseUrl + id);
+    let auth_token = localStorage.getItem('token_value');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    })
+
+    return this.http.delete(this.baseUrl + id, {headers: headers});
   }
 }
